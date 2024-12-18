@@ -161,7 +161,7 @@ group_members = st.text_input(
 # Main controls
 st.header("Crea la Tua Immagine")
 prompt = st.text_area(
-    "La Tua Visione",
+    "Il tuo Prompt",
     placeholder="Un maestoso castello su un'isola fluttuante al tramonto, con draghi che volano intorno...",
     height=100
 )
