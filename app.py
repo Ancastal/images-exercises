@@ -152,11 +152,6 @@ st.markdown("Crea immagini straordinarie da descrizioni testuali utilizzando tec
 
 # Add this after the title and before the main controls
 st.markdown("---")
-group_members = st.text_input(
-    "👥 Membri del Gruppo",
-    placeholder="Es: Mario Rossi, Luigi Bianchi",
-    help="Inserisci i nomi dei membri del gruppo separati da virgola"
-)
 
 # Main controls
 st.header("Crea la Tua Immagine")
@@ -169,8 +164,6 @@ prompt = st.text_area(
 if st.button("🚀 Genera Immagine", type="primary", use_container_width=True):
     if not prompt:
         st.error("Per favore, inserisci prima una descrizione!")
-    elif not group_members:
-        st.error("Per favore, inserisci i membri del gruppo!")
     else:
         # First check with basic filter
         is_inappropriate, found_terms = contains_inappropriate_content(prompt)
@@ -191,8 +184,8 @@ if st.button("🚀 Genera Immagine", type="primary", use_container_width=True):
                 elif image:
                     st.session_state.generated_image = image
                     st.session_state.show_tips = False
-                    # Save the generation log with group members
-                    save_generation_log(prompt, image, group_members)
+                    # Save the generation log without group members
+                    save_generation_log(prompt, image)
 
 # Tips and Notes without columns
 with st.expander("💡 Suggerimenti per risultati migliori", expanded=True):
