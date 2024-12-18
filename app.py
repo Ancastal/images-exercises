@@ -6,7 +6,6 @@ import base64
 from PIL import Image
 from io import BytesIO
 from openai import OpenAI
-from utils import save_generation_log
 import pandas as pd
 from dotenv import load_dotenv
 import os
@@ -184,8 +183,6 @@ if st.button("🚀 Genera Immagine", type="primary", use_container_width=True):
                 elif image:
                     st.session_state.generated_image = image
                     st.session_state.show_tips = False
-                    # Save the generation log without group members
-                    save_generation_log(prompt, image)
 
 # Tips and Notes without columns
 with st.expander("💡 Suggerimenti per risultati migliori", expanded=True):
